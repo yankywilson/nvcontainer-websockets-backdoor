@@ -1,0 +1,515 @@
+{
+    "type": "bundle",
+    "id": "bundle--52375b45-6c94-402a-bca2-44db41d4f701",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "YWilson",
+            "identity_class": "individual"
+        },
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9",
+            "created": "2017-01-20T00:00:00.000Z",
+            "definition_type": "tlp",
+            "name": "TLP:WHITE",
+            "definition": {
+                "tlp": "white"
+            }
+        },
+        {
+            "type": "malware",
+            "spec_version": "2.1",
+            "id": "malware--86540c41-d822-480a-8480-e04cb1157a67",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "nvcontainer WebSockets backdoor",
+            "description": "libwebsockets-based backdoor posing as NVIDIA nvcontainer.exe; WSS C2 on port 8050 with plaintext bracket-tag protocol; recon, archive-and-upload exfiltration, file download.",
+            "malware_types": [
+                "backdoor",
+                "remote-access-trojan"
+            ],
+            "is_family": true,
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "malware",
+            "spec_version": "2.1",
+            "id": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "nvcontainer downloader (document.exe / Dper.dll)",
+            "description": "C++ and .NET 8 downloaders that fetch 7 disguised files from a staging server; .NET build gates downloads on an ICMP reply from 8.8.8.8.",
+            "malware_types": [
+                "downloader"
+            ],
+            "is_family": true,
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "campaign",
+            "spec_version": "2.1",
+            "id": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "nvcontainer WebSockets backdoor activity (2026)",
+            "description": "Infrastructure registered May 2026; samples surfaced Sep 29, 2026 from Iraq. No attribution asserted.",
+            "first_seen": "2026-05-03T13:31:40Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "infrastructure",
+            "spec_version": "2.1",
+            "id": "infrastructure--76929e03-1998-4413-acbf-abf876b92f27",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "Staging server 153.75.247.94",
+            "infrastructure_types": [
+                "hosting-malware",
+                "staging"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "infrastructure",
+            "spec_version": "2.1",
+            "id": "infrastructure--a6fe9743-93b9-417e-a39e-884e1f4da094",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "C2 server www.xionamiconm.com:8050",
+            "description": "Likely a legitimate business Windows server (Dynamics NAV, MSMQ) used by the operator; ownership unresolved.",
+            "infrastructure_types": [
+                "command-and-control"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--a617c163-2f0d-47a5-a561-73d81eb8eb2d",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "C2 domain",
+            "description": "C2 host and apex",
+            "pattern": "[domain-name:value = 'www.xionamiconm.com' OR domain-name:value = 'xionamiconm.com']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--657fef0f-593c-41aa-8721-3303be346074",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "Staging domain",
+            "description": "Registered 2026-05-06, resolves to staging IP",
+            "pattern": "[domain-name:value = 'nibibomo.com']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--0b0c3264-a52b-4207-90d6-61f3dbb2c597",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "Staging IP",
+            "description": "Hard-coded in both downloaders",
+            "pattern": "[ipv4-addr:value = '153.75.247.94']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--2d37f66b-74d0-466e-8254-f78f5a92a615",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "C2 IP",
+            "description": "Likely legitimate business server; context required",
+            "pattern": "[ipv4-addr:value = '173.214.174.40']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--263b34df-52a3-49ac-a6cc-8e80cdd80a16",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "Backdoor sample",
+            "description": "nvcontainer.exe",
+            "pattern": "[file:hashes.'SHA-256' = '7bdd7d62f28d859e8dc63a962e56b4fbf72135fde0e92bebf36e2a4fde628f27']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--fe090ffc-8c42-4eb6-8eb6-4d6183a9ba0c",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "C++ downloader",
+            "description": "document.exe",
+            "pattern": "[file:hashes.'SHA-256' = 'b6c49943afd87215dbd560583fc0c464f3dcf819278557953a33a811b4880f36']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--19c9b917-8307-438c-ad82-ce92c00566fb",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": ".NET downloader",
+            "description": "Dper.dll",
+            "pattern": "[file:hashes.'SHA-256' = '7a0ce15051cf82cfb107d94dd4a16d55ee18783e2577b434d268799db8f843c9']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--cbc64b88-7748-4405-9fa6-2a8c5e14c52b",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": ".NET downloader bundle",
+            "description": "single-file bundle",
+            "pattern": "[file:hashes.'SHA-256' = 'd172138487a2e66398c7474e24849dbf19157bb30823de7df98556943de7f74f']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--d8be9538-3d97-4bd6-9b1b-6a4426650a27",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "Downloader mutex (.NET)",
+            "description": ".NET downloader",
+            "pattern": "[mutex:name = 'Global\\\\Nvidia_Container_Downloader_Unique_ID_54321']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--90c7d6ab-4b7c-4d56-9a4f-c671a16f6fb5",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "name": "Downloader mutex (C++)",
+            "description": "C++ downloader",
+            "pattern": "[mutex:name = 'Global\\\\NvCDIr_U54321']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-11-08T00:00:00Z",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--d69ec14d-e5ee-42c3-87fd-2675b3ecfd80",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "uses",
+            "source_ref": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "target_ref": "malware--86540c41-d822-480a-8480-e04cb1157a67",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--85a0d809-c0dd-41dd-b883-3ea95b4ae8e3",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "uses",
+            "source_ref": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "target_ref": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8d4ecfc0-14fd-49fe-933a-7496284d6ab9",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "downloads",
+            "source_ref": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "target_ref": "malware--86540c41-d822-480a-8480-e04cb1157a67",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--1c5da5cf-4ac1-4929-ab7d-5d15143ec032",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--86540c41-d822-480a-8480-e04cb1157a67",
+            "target_ref": "infrastructure--a6fe9743-93b9-417e-a39e-884e1f4da094",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--fc2fe90f-fe67-48c9-bd9d-8182a85d1a0c",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "uses",
+            "source_ref": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "target_ref": "infrastructure--76929e03-1998-4413-acbf-abf876b92f27",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--e3334b44-7d2d-46f7-9a1a-dbbe00187905",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "uses",
+            "source_ref": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "target_ref": "infrastructure--76929e03-1998-4413-acbf-abf876b92f27",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--de92d716-cfce-4ff2-9e62-727b60d951db",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "uses",
+            "source_ref": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "target_ref": "infrastructure--a6fe9743-93b9-417e-a39e-884e1f4da094",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--4326f6fc-bb1a-44bd-b4ee-418fb1eecc36",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a617c163-2f0d-47a5-a561-73d81eb8eb2d",
+            "target_ref": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--c197a1c2-bfb3-43e3-8557-568e024811d2",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--657fef0f-593c-41aa-8721-3303be346074",
+            "target_ref": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--3e5551b5-42e5-477f-9b9a-f664af40e03f",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--0b0c3264-a52b-4207-90d6-61f3dbb2c597",
+            "target_ref": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--48cb95de-63b3-4250-b33c-17eb62409db7",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2d37f66b-74d0-466e-8254-f78f5a92a615",
+            "target_ref": "campaign--e8325fbb-c16c-4cf3-9172-616f4ce8d978",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--5fda163a-aa22-48d3-a8cf-c671cbaabd6a",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--263b34df-52a3-49ac-a6cc-8e80cdd80a16",
+            "target_ref": "malware--86540c41-d822-480a-8480-e04cb1157a67",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--11219099-6bfa-412a-b604-59854a20bb3c",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--fe090ffc-8c42-4eb6-8eb6-4d6183a9ba0c",
+            "target_ref": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9ae67cbe-87f0-48ba-b2a8-c9d92115eabd",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--19c9b917-8307-438c-ad82-ce92c00566fb",
+            "target_ref": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--c825dcfb-194a-4a80-b73f-b68f53a55d85",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--cbc64b88-7748-4405-9fa6-2a8c5e14c52b",
+            "target_ref": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bcc69d2f-ae1e-4d47-b872-e7f5e550e684",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--d8be9538-3d97-4bd6-9b1b-6a4426650a27",
+            "target_ref": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bb84228a-d873-47dc-a395-33c1691a52e2",
+            "created_by_ref": "identity--b5151b0d-43b3-4086-892f-86d20cc2d646",
+            "created": "2026-11-08T23:59:00.000Z",
+            "modified": "2026-11-08T23:59:00.000Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--90c7d6ab-4b7c-4d56-9a4f-c671a16f6fb5",
+            "target_ref": "malware--5c9aa478-6a81-4a52-a1db-3ce2e7b3afc2",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        }
+    ]
+}

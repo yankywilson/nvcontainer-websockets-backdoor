@@ -1,0 +1,12 @@
+type,value,reason,do_not
+tls_cert,CN=alma9.ispot.cc serial 07735aa4b762ad4d852d0838ba0043267d8566ce,InterServer Webuzo/AlmaLinux 9 template - identical on unrelated customers,pivot or block
+jarm,3fd3fd15d3fd3fd00042d42d000000a0d14c559c674ff8857d4e511e7563d1,template TLS stack,pivot or block
+http,Softaculous Webuzo default page (Last-Modified 2026-05-31 16:34:37),template default page,pivot
+dns,MX 25 mail.<domain> + www + mail A records,InterServer DNS default zone layout,pivot
+nameserver,cdns1.interserver.net,13108 domains share it,pivot
+sha256,96dde73df4a2df72d5fc788e1ad99c6adf388cd42c2f874cf8d6a883a3654bf7,stock libssl-3-x64.dll (OpenSSL 3.1.2),block alone
+sha256,19404d7210afae742c46ed7acca7e28083ac4ddc8f13adfd60b9d19a2aba692a,stock libcrypto-3-x64.dll,block alone
+sha256,7ee229626b22799faa28cd7c22d4ff2ad0603c17e5f5ee9086fa7cf6483331fb,renamed Microsoft-signed ucrtbase.dll 10.0.18362.815,block
+sha256,7d7ca28235fba5603a7f40514a552ac7efaa67a5d5792bb06273916aa8565c5f,likely renamed release vcruntime140.dll 14.28.29115,block
+sha256,7430e90ee0cdca2d0f02b1ece46fbf255d5d0408111f009638e3b892d6ca089c,CA certificate bundle (cacert.pem),block
+banner,scanner EHLO names and 224.x.x.x addresses,scan engines' own identities,pivot

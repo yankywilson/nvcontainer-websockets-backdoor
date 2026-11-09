@@ -1,0 +1,21 @@
+type,value,component,tag,notes
+mutex,Global\NvCDIr_U54321,C++ downloader,NOVEL,
+mutex,Global\Nvidia_Container_Downloader_Unique_ID_54321,.NET downloader,NOVEL,
+mutex,MyUniqueClientAppMutex,backdoor,CORROBORATED,
+path,%APPDATA%\Microsoft\Protect\NV\,C++ downloader install folder,PUBLISHED,
+path,%APPDATA%\Microssoft\Cache\nvcontainer.exe,.NET downloader install path,NOVEL,typo is literal
+path,%TEMP%\nvidia_download_status.dat,.NET downloader status marker,NOVEL,survives cleanup due to a filename bug
+path,%TEMP%\nvidia_download_progress.dat,.NET downloader resume file,NOVEL,name=size lines
+path,%TEMP%\Nvidia container_error.txt,.NET downloader crash file,NOVEL,
+registry,HKCU\Software\Microsoft\Windows\CurrentVersion\Run\MyClientApp,backdoor persistence,CORROBORATED,
+registry,HKCU\SOFTWARE\Microsoft\MyApp\Activated,backdoor activation flag,CORROBORATED,value 1
+registry,HKCU\SOFTWARE\Nvidia containerDownloader,.NET cleanup target,NOVEL,not created by the analyzed build - likely from an earlier build
+file_pattern,V_<drive>_<8hex>_<name>.zip,backdoor exfil archive,NOVEL,
+file_pattern,<archive>.vortexstamp,backdoor archive fingerprint sidecar,PUBLISHED,
+file_pattern,%TEMP%\Nvidia_container_*.tmp,.NET cleanup target,NOVEL,not created by the analyzed build
+process,tar.exe -a -caf,backdoor archiving,NOVEL,falls back to powershell -EncodedCommand (ZipFile)
+process,cmd.exe /c mklink /J,backdoor archiving,NOVEL,junction for long or protected paths
+string,ws-protocol,backdoor WebSocket subprotocol,PUBLISHED,
+string,[LAL_P],backdoor hello tag,PUBLISHED,9 pipe-separated fields
+string,[PONG]],backdoor PING reply,NOVEL,reply bug - inside TLS
+useragent,Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36,.NET downloader HTTP,NOVEL,truncated UA

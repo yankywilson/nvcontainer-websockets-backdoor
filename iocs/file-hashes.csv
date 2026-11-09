@@ -1,0 +1,7 @@
+sha256,md5,filename,role,tag,notes
+b6c49943afd87215dbd560583fc0c464f3dcf819278557953a33a811b4880f36,a4850780bb5754288935f4a6cc4b2c49,document.exe,C++ downloader,PUBLISHED,compiled 2026-09-13 11:27:11 UTC; XOR 0x5A strings; FNV-1a API hashing
+7a0ce15051cf82cfb107d94dd4a16d55ee18783e2577b434d268799db8f843c9,,Dper.dll,.NET 8 downloader (managed core),NOVEL,23552 bytes; not hash-verified as core of the bundle below
+d172138487a2e66398c7474e24849dbf19157bb30823de7df98556943de7f74f,,(single-file bundle),.NET 8 downloader bundle,CORROBORATED,VirusTotal behavior run Oct 11 2026
+7bdd7d62f28d859e8dc63a962e56b4fbf72135fde0e92bebf36e2a4fde628f27,5e427e93694cf8ed07ba04d5ae7437c7,nvcontainer.exe,backdoor,PUBLISHED,imphash fcfc49049b543c5b5d608be8ff48e901; /Brepro; build tag v6
+09dd82085e407c1d3066aa790d91d140e05798893e856580040175fa5284a9ee,,websockets.dll,staged library,CORROBORATED,libwebsockets 4.3.99; compiled 2024-11-20; context only
+c48179f5246e3cc7b6572fe9172fff21506ccf80bfd34bb21fd0b2db4e294b7b,,nvidia_download_status.dat,downloader status marker,CORROBORATED,content COMPLETED

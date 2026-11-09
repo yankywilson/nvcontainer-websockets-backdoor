@@ -1,0 +1,15 @@
+type,value,defanged,role,first_seen,tag,notes
+domain,www.xionamiconm.com,www.xionamiconm[.]com,C2 host,2026-10-11,PUBLISHED,WSS port 8050 path /ws/ subprotocol ws-protocol
+domain,xionamiconm.com,xionamiconm[.]com,C2 apex,2026-05-05,PUBLISHED,registered 2026-05-03 via InterServer reseller; zone edited 2026-09-28
+domain,nibibomo.com,nibibomo[.]com,staging domain,2026-05-08,NOVEL,registered 2026-05-06; www and mail also resolve to staging IP
+ipv4,153.75.247.94,153.75.247[.]94,staging server,2026-05-08,PUBLISHED,AS19318 InterServer; Exim/BIND hostname C2
+ipv4,173.214.174.40,173.214.174[.]40,C2 server,2026-05-05,PUBLISHED,AS19318 InterServer; vps3379646.trouble-free.net; likely legitimate business server - see docs/infrastructure.md
+url,,hxxp://153.75.247[.]94/libcrypto-3-x64.jpg,staging URL,,PUBLISHED,saved as libcrypto-3-x64.dll
+url,,hxxp://153.75.247[.]94/libssl-3-x64.jpg,staging URL,,PUBLISHED,saved as libssl-3-x64.dll
+url,,hxxp://153.75.247[.]94/ucrtbased.jpg,staging URL,,PUBLISHED,saved as ucrtbased.dll
+url,,hxxp://153.75.247[.]94/vcruntime140D.jpg,staging URL,,PUBLISHED,saved as vcruntime140D.dll
+url,,hxxp://153.75.247[.]94/websockets.jpg,staging URL,,PUBLISHED,saved as websockets.dll
+url,,hxxp://153.75.247[.]94/cacert.jpg,staging URL,,PUBLISHED,saved as cacert.pem
+url,,hxxp://153.75.247[.]94/nvcontainer.png,staging URL,,PUBLISHED,saved as nvcontainer.exe (backdoor)
+url,,wss://www.xionamiconm[.]com:8050/ws/,C2 endpoint,,PUBLISHED,TLS with certificate checks disabled (libwebsockets flags 7)
+ja3,5a1edc7f170af1014fc65c994878e63c,5a1edc7f170af1014fc65c994878e63c,backdoor TLS client,2026-10-11,CORROBORATED,from VirusTotal sandbox
